@@ -34,8 +34,10 @@ pub fn main() !void {
         if (guess == num) {
             std.debug.print("Hooray! You got it right!\n", .{});
             break;
-        } else {
-            std.debug.print("Wrong. Try again.\n", .{});
+        } else if (guess < num) {
+            std.debug.print("Too low. Try again.\n", .{});
+        } else if (guess > num) {
+            std.debug.print("Too high. Try again.\n", .{});
         }
     }
 }
